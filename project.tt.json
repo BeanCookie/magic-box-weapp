@@ -1,0 +1,9 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "magic-box-weapp",
+  "appid": "touristappid",
+  "setting": {
+    "es6": false,
+    "minified": false
+  }
+}
