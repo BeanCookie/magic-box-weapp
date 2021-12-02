@@ -1,1 +1,1 @@
-export const HOST = 'http://localhost:8000';
+export const HOST = 'http://10.144.10.14:8000';

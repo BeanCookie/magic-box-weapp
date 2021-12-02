@@ -7,6 +7,9 @@ export default {
     namespace,
     state: {
         articles: [],
+        params: {
+            page: 1
+        },
     },
     reducers: {
         overrideStateProps(state, { payload }) {
@@ -25,15 +28,39 @@ export default {
         },
     },
     effects: {
-        *fetch({ payload }, { call, put, select }) {
-            const res = yield call(Juejin.fetch);
-            console.log(res);
+        *list(_, { call, put, select }) {
+            const { params, articles } = yield select(selectState);
+
+            const res = yield call(Juejin.fetch, params);
             yield put({
                 type: 'overrideStateProps',
                 payload: {
-                    articles: res.data.list,
+                    articles: [...articles, ...res.data.list],
                 }
             })
+        },
+        *setParams({ payload }, { put }) {
+            yield put({
+                type: 'updateStateProps',
+                payload: {
+                    name: 'params',
+                    value: {
+                        ...payload,
+                    },
+                },
+            });
+            yield put({ type: 'get' });
+        },
+        *resetFilter(_, { put }) {
+            yield put({
+                type: 'overrideStateProps',
+                payload: {
+                    params: { page: 1 },
+                },
+            });
+            yield put({
+                type: 'fetchList',
+            });
         },
     }
 };
