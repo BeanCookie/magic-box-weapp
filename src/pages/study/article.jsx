@@ -1,11 +1,12 @@
 import React, { useState, useEffect, Component } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View } from '@tarojs/components'
+import { WebView } from '@tarojs/components'
+
 import './index.scss'
 
 export default function index() {
+  const { articleUrl } = useSelector(store => store.study)
   return (
-    <View>Home</View>
-  );
+    <WebView src={articleUrl} />
+  )
 }
-

@@ -1,6 +1,6 @@
-import Juejin from '@/services/juejin';
+import Csdn from '@/services/csdn';
 
-const namespace = 'juejin';
+const namespace = 'csdn';
 const selectState = state => state[namespace];
 
 export default {
@@ -32,7 +32,7 @@ export default {
         *list(_, { call, put, select }) {
             const { params, articles } = yield select(selectState);
 
-            const res = yield call(Juejin.fetch, params);
+            const res = yield call(Csdn.fetch, params);
             yield put({
                 type: 'overrideStateProps',
                 payload: {

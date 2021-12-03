@@ -1,10 +1,10 @@
 import request from '@/utils/request';
-import { HOST } from '@/utils/constant';
+import { HOST, JUEJIN } from '@/utils/constant';
 
 export default class Juejin {
     static fetch(data) {
         return request({
-            url: `${HOST}/api/v1/juejin/articles`,
+            url: `${HOST}/api/v1/articles?platform=${JUEJIN}`,
             data: data
         });
     }

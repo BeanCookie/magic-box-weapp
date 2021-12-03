@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View } from '@tarojs/components'
 import './index.scss'
 
-export default function index() {
+export default function Meituan() {
   return (
-    <View>Home</View>
+    <View>美团技术团队</View>
   );
 }
 

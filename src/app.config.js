@@ -1,7 +1,9 @@
 export default {
   pages: [
-    'pages/home/index',
-    'pages/juejin/index',
+    // 'pages/home/index',
+    'pages/study/index',
+    'pages/study/article',
+    'pages/hotspot/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -15,15 +17,15 @@ export default {
     backgroundColor: '#ffffff',
     list: [
         {
-            // selectedIconPath: 'assets/tab_index_pre.png',
-            // iconPath: 'assets/tab_index.png',
-            pagePath: 'pages/home/index',
-            text: '文章',
+            selectedIconPath: 'assets/study.png',
+            iconPath: 'assets/study_unselected.png',
+            pagePath: 'pages/study/index',
+            text: '学习',
         },
         {
-            // selectedIconPath: 'assets/tab_application_pre.png',
-            // iconPath: 'assets/tab_application.png',
-            pagePath: 'pages/juejin/index',
+            selectedIconPath: 'assets/hotspot.png',
+            iconPath: 'assets/hotspot_unselected.png',
+            pagePath: 'pages/hotspot/index',
             text: '热点',
         },
     ],
