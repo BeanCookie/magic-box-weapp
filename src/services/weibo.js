@@ -1,10 +1,10 @@
 import request from '@/utils/request';
-import { HOST, CSDN } from '@/utils/constant';
+import { HOST, WEIBO } from '@/utils/constant';
 
-export default class Csdn {
+export default class Weibo {
     static fetch(data) {
         return request({
-            url: `${HOST}/api/v1/articles?platform=${CSDN}`,
+            url: `${HOST}/api/v1/hot-news?platform=${WEIBO}`,
             data: data
         });
     }

@@ -30,11 +30,11 @@ export default function Weibo() {
     });
   })
   
-  const handleClick = id => {
+  const handleClick = keyWord => {
     dispatch({
       type: 'hotNew/setHotNewUrl',
       payload: {
-        hotNewUrl: `https://s.weibo.com/weibo?q=#上海震旦学院#`,
+        hotNewUrl: `https://s.weibo.com/weibo?q=%23${keyWord}%23`,
       },
     })
     Taro.navigateTo({
@@ -57,7 +57,7 @@ export default function Weibo() {
           <AtListItem
             onClick={() => handleClick(hotNew.id)}
             key={hotNew.id}
-            title={hotNew.title}
+            title={hotNew.key_word}
             thumb={hotNew.cover_image}
             note={hotNew.brief_content}
           />
