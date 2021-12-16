@@ -55,7 +55,7 @@ export default function Weibo() {
       <AtList>
         {hotNews.map(hotNew => (
           <AtListItem
-            onClick={() => handleClick(hotNew.id)}
+            onClick={() => handleClick(hotNew.key_word)}
             key={hotNew.id}
             title={hotNew.key_word}
             thumb={hotNew.cover_image}
