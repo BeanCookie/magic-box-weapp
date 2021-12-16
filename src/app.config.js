@@ -1,9 +1,9 @@
 export default {
   pages: [
-    // 'pages/home/index',
     'pages/study/index',
     'pages/study/article',
-    'pages/hotspot/index',
+    'pages/hotNew/new',
+    'pages/hotNew/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -25,7 +25,7 @@ export default {
         {
             selectedIconPath: 'assets/hotspot.png',
             iconPath: 'assets/hotspot_unselected.png',
-            pagePath: 'pages/hotspot/index',
+            pagePath: 'pages/hotNew/index',
             text: '热点',
         },
     ],

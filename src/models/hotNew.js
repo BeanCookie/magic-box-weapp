@@ -1,12 +1,11 @@
-const namespace = 'study';
+const namespace = 'hotNew';
 const selectState = state => state[namespace];
 
 export default {
     namespace,
     state: {
-        articleUrl: '',
-        // tabList: [{ title: '掘金' }, { title: 'CSDN' }, { title: '美团技术团队' }]
-        tabList: [{ title: '掘金' }, { title: 'CSDN' }]
+        hotNewUrl: '',
+        tabList: [{ title: '微博' }]
     },
     reducers: {
         overrideStateProps(state, { payload }) {
@@ -25,11 +24,12 @@ export default {
         },
     },
     effects: {
-        *setArticleUrl({ payload }, { put }) {
+        *setHotNewUrl({ payload }, { put }) {
+            console.log(payload);
             yield put({
                 type: 'overrideStateProps',
                 payload: {
-                    articleUrl: payload.articleUrl
+                    hotNewUrl: payload.hotNewUrl
                 },
             });
         },

@@ -35,6 +35,7 @@ export default function Juejin() {
       type: 'study/setArticleUrl',
       payload: {
         articleUrl: 'https://juejin.cn/post/' + id,
+        // articleUrl: 'https://s.weibo.com/weibo?q=%23%E4%B8%8A%E6%B5%B7%E9%9C%87%E6%97%A6%E5%AD%A6%E9%99%A2%23',
       },
     })
     Taro.navigateTo({

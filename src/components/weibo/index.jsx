@@ -3,47 +3,48 @@ import { useDispatch, useSelector } from 'react-redux';
 import Taro, { useDidShow, useReachBottom, usePullDownRefresh } from '@tarojs/taro';
 import { View } from '@tarojs/components'
 import { AtList, AtListItem } from "taro-ui"
+
 import './index.scss'
 
-export default function Csdn() {
+export default function Weibo() {
   const dispatch = useDispatch()
 
-  const { articles, params } = useSelector(store => store.csdn)
+  const { hotNews, params } = useSelector(store => store.weibo)
 
   useEffect(() => {
     dispatch({
-      type: 'csdn/list',
+      type: 'weibo/list',
     })
   }, [dispatch])
 
 
   useReachBottom(() => {
     dispatch({
-      type: 'csdn/setParams',
+      type: 'weibo/setParams',
       payload: {
         page: params.page + 1,
       },
     })
     dispatch({
-      type: 'csdn/list',
+      type: 'weibo/list',
     });
   })
-
-  const handleClick = article => {
+  
+  const handleClick = id => {
     dispatch({
-      type: 'study/setArticleUrl',
+      type: 'hotNew/setHotNewUrl',
       payload: {
-        articleUrl: `https://blog.csdn.net/${article.user_name}/article/details/${article.id}`,
+        hotNewUrl: `https://s.weibo.com/weibo?q=#上海震旦学院#`,
       },
     })
     Taro.navigateTo({
-      url: `/pages/study/article`
+      url: `/pages/hotNew/new`
     })
   }
 
   usePullDownRefresh(() => {
     dispatch({
-        type: 'csdn/resetFilter',
+        type: 'weibo/resetFilter',
     }).then(() => {
         Taro.stopPullDownRefresh();
     });
@@ -52,12 +53,13 @@ export default function Csdn() {
   return (
     <View>
       <AtList>
-        {articles.map(article => (
+        {hotNews.map(hotNew => (
           <AtListItem
-            onClick={() => handleClick(article)}
-            key={article.id}
-            title={article.title}
-            thumb={article.cover_image}
+            onClick={() => handleClick(hotNew.id)}
+            key={hotNew.id}
+            title={hotNew.title}
+            thumb={hotNew.cover_image}
+            note={hotNew.brief_content}
           />
         ))}
       </AtList>

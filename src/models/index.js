@@ -1,11 +1,15 @@
 import home from './home';
-import juejin from './juejin';
 import study from './study';
+import hotNew from './hotNew';
+import juejin from './juejin';
 import csdn from './csdn';
+import weibo from './weibo';
 
 export default [
     home,
-    juejin,
     study,
+    hotNew,
+    juejin,
     csdn,
+    weibo,
 ];
